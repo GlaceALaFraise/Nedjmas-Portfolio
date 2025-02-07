@@ -106,13 +106,8 @@ button.prev, button.next {
     position: absolute;
     top: 40%;
     color: rgba(133, 165, 140, 0.7);
-    border: rgba(133, 165, 140, 0.7);
-    border-width: 0 3px 3px 0;
-    display: inline-block;
     font-size: 5rem;
     cursor: pointer;
-    z-index: 10;
-    border-radius: 50%;
     height: 40px;
     width: 40px;
     transition: 0.3s ease;
