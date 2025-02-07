@@ -112,6 +112,7 @@ button.prev, button.next {
     width: 40px;
     transition: 0.3s ease;
     box-shadow: none;
+    border: none;
 }
 
 button.prev { left: -100px; }
