@@ -61,7 +61,7 @@ p {
 }
 
 .logo {
-    font-size: 18px;
+    font-size: 30px;
     font-weight: bold;
     color: white;
     cursor: pointer;
@@ -111,6 +111,7 @@ button.prev, button.next {
     height: 40px;
     width: 40px;
     transition: 0.3s ease;
+    box-shadow: none;
 }
 
 button.prev { left: -100px; }
