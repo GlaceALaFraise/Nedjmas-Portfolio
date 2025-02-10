@@ -1,6 +1,23 @@
 document.addEventListener('DOMContentLoaded', function () {
     console.log("Le script du carrousel est bien chargé !");
 
+    /** ========== GESTION DU FILTRE PAR CATÉGORIE ========== **/
+    const filterButtons = document.querySelectorAll('.filter-option');
+    let activeCategory = "all";
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            activeCategory = this.getAttribute("data-category");
+
+            // Changer la classe active
+            filterButtons.forEach(btn => btn.classList.remove("active"));
+            this.classList.add("active");
+
+            // Mettre à jour les images affichées
+            updateCarousel();
+        });
+    });
+
     /** ========== GESTION DU CARROUSEL ========== **/
     let index = 0;
     const images = document.querySelectorAll('.carousel-image');
@@ -14,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Création des dots dynamiquement
+    dotsContainer.innerHTML = ""; // Réinitialiser les dots
     images.forEach((_, i) => {
         const dot = document.createElement('div');
         dot.classList.add('dot');
@@ -29,8 +47,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updateCarousel() {
         images.forEach((img, i) => {
+            const imgCategory = img.getAttribute("data-category");
+
+            // Vérifier si l'image correspond à la catégorie active
+            if (activeCategory === "all" || imgCategory === activeCategory) {
+                img.style.display = "block";
+            } else {
+                img.style.display = "none";
+            }
+
+            // Afficher seulement l'image active
             img.classList.remove('active');
-            if (i === index) {
+            if (i === index && img.style.display === "block") {
                 img.classList.add('active');
             }
         });
@@ -42,12 +70,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Navigation avec les boutons "next" et "prev"
     nextButton.addEventListener('click', function () {
-        index = (index + 1) % images.length;
+        do {
+            index = (index + 1) % images.length;
+        } while (images[index].style.display === "none"); // Ignorer les images cachées
         updateCarousel();
     });
 
     prevButton.addEventListener('click', function () {
-        index = (index - 1 + images.length) % images.length;
+        do {
+            index = (index - 1 + images.length) % images.length;
+        } while (images[index].style.display === "none"); // Ignorer les images cachées
         updateCarousel();
     });
 
@@ -71,5 +103,5 @@ document.addEventListener('DOMContentLoaded', function () {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    console.log("Tout fonctionne bien !");
+    console.log("Mise à jour du script terminée !");
 });
