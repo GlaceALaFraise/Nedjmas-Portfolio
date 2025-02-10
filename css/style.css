@@ -83,7 +83,8 @@ p {
 /* ======= CARROUSEL ======= */
 .carousel {
     position: relative;
-    max-width: 600px;
+    overflow: hidden;
+    width: 100%;
     margin: 40px auto;
     box-shadow: rgba(28, 27, 46, 0.3) 0px 50px 100px 0px;
 }
@@ -91,18 +92,15 @@ p {
 .carousel-image {
     width: 100%;
     display: none;
-    opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
 
 .carousel-image.active {
     display: block;
-    opacity: 1;
-    transform: translateX(0);
 }
 
 /* BOUTONS DU CARROUSEL */
-button.prev, button.next {
+.prev, .next {
     position: absolute;
     top: 40%;
     color: rgba(133, 165, 140, 0.7);
@@ -115,10 +113,10 @@ button.prev, button.next {
     border: none;
 }
 
-button.prev { left: -100px; }
-button.next { right: -100px; }
+.prev { left: -100px; }
+.next { right: -100px; }
 
-button.prev:hover, button.next:hover {
+.prev:hover, .next:hover {
     color: #f28582;
     transform: scale(1.2);
 }
