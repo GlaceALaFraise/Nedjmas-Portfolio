@@ -40,15 +40,21 @@
     <!-- CARROUSEL -->
     <section id="PROJETS">
         <h2>PROJETS</h2>
+		<div class="filter-btn">
+            <button class="filter-btn active" data-category="all">Tous</button>
+            <button class="filter-btn" data-category="digi">Digital</button>
+            <button class="filter-btn" data-category="tradi">Traditionnel</button>
+            <button class="filter-btn" data-category="3D">3D</button>
+            <button class="filter-btn" data-category="lino">Linogravure</button>
         <div class="carousel">
-            <button class="prev"><</button>
+            <span class="prev" data-action="prev">&#10094;</span>
             <div class="carousel-images">
-                <img src="images/RayaFanart.PNG" alt="Raya Fanart" class="carousel-image">
-                <img src="images/GingembreXme.PNG" alt="Gingembre" class="carousel-image">
-                <img src="images/Viktor.PNG" alt="Viktor" class="carousel-image">
-                <img src="images/ZeldaSona.PNG" alt="Zeldasona" class="carousel-image">
+                <img src="images/RayaFanart.PNG" class="carousel-image" data-category="digi">
+                <img src="images/GingembreXme.PNG" class="carousel-image" data-category="digi">
+                <img src="images/Viktor.PNG" class="carousel-image" data-category="digi">
+                <img src="images/ZeldaSona.PNG" class="carousel-image" data-category="digi">
             </div>
-            <button class="next">></button>
+            <span class="next" data-action="next">&#10095;</span>
             <div class="carousel-dots"></div>
         </div>
     </section>
